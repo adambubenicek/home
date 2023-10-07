@@ -74,4 +74,5 @@ dconf write /org/gnome/settings-daemon/plugins/color/night-light-enabled true
 dconf write /org/gnome/desktop/peripherals/mouse/natural-scroll true
 dconf write /org/gnome/desktop/background/picture-options "'none'"
 dconf write /org/gnome/desktop/background/primary-color "'#000000'"
+dconf write /org/gnome/desktop/peripherals/touchpad/tap-to-click true
 
