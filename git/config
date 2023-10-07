@@ -1,0 +1,5 @@
+[user]
+	name = Adam Bubenicek
+	email = adam@adambubenicek.com
+[init]
+	defaultBranch = main
