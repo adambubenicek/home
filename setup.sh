@@ -2,6 +2,9 @@
 
 set -e
 
+SCRIPT_FILE=$(realpath "$0")
+SCRIPT_DIR=$(dirname "$SCRIPT_FILE")
+
 sudo dnf install \
 	neovim \
 	git \
@@ -27,18 +30,18 @@ sudo cp keyd/default.conf /etc/keyd/default.conf
 sudo systemctl enable --now keyd
 
 mkdir -p ~/.config/fish
-ln -sf "$(pwd)/fish/config.fish" ~/.config/fish/config.fish
+ln -sf "$SCRIPT_DIR/fish/config.fish" ~/.config/fish/config.fish
 sudo chsh -s /bin/fish adam
 
 mkdir -p ~/.config/nvim
-ln -sf "$(pwd)/neovim/init.lua" ~/.config/nvim/init.lua
+ln -sf "$SCRIPT_DIR/neovim/init.lua" ~/.config/nvim/init.lua
 
 mkdir -p ~/.config/git
-ln -sf "$(pwd)/git/config" ~/.config/git/config
+ln -sf "$SCRIPT_DIR/git/config" ~/.config/git/config
 
-ln -sf "$(pwd)/gpg/gpg.conf" ~/.gnupg/gpg.conf
-ln -sf "$(pwd)/gpg/gpg-agent.conf" ~/.gnupg/gpg-agent.conf
-ln -sf "$(pwd)/gpg/sshcontrol" ~/.gnupg/sshcontrol
+ln -sf "$SCRIPT_DIR/gpg/gpg.conf" ~/.gnupg/gpg.conf
+ln -sf "$SCRIPT_DIR/gpg/gpg-agent.conf" ~/.gnupg/gpg-agent.conf
+ln -sf "$SCRIPT_DIR/gpg/sshcontrol" ~/.gnupg/sshcontrol
 
 if ! rclone config show storagebox-crypt; then
 	host=$(gpg -q -d rclone/storagebox-crypt-host.gpg)
@@ -61,11 +64,11 @@ fi
 
 mkdir -p ~/.config/systemd/user
 mkdir -p ~/Storage\ Box
-ln -sf "$(pwd)/rclone/systemd/storagebox.service" ~/.config/systemd/user/storagebox.service
+ln -sf "$SCRIPT_DIR/rclone/systemd/storagebox.service" ~/.config/systemd/user/storagebox.service
 systemctl enable --user storagebox
 
 find ~/.mozilla/firefox -regex '.*\.default\(-release\)?' | while read dir; do
-ln -sf "$(pwd)/firefox/user.js" "$dir/user.js"
+ln -sf "$SCRIPT_DIR/firefox/user.js" "$dir/user.js"
 done
 
 sudo cp gdm/custom.conf /etc/gdm/custom.conf
