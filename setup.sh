@@ -28,7 +28,7 @@ sudo systemctl enable --now keyd
 
 mkdir -p ~/.config/fish
 ln -sf "$(pwd)/fish/config.fish" ~/.config/fish/config.fish
-sudo chsh -s /bin/fish
+sudo chsh -s /bin/fish adam
 
 mkdir -p ~/.config/nvim
 ln -sf "$(pwd)/neovim/init.lua" ~/.config/nvim/init.lua
