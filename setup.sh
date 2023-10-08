@@ -11,6 +11,8 @@ sudo dnf install \
 	gcc \
 	make \
 	fish \
+	ripgrep \
+	fd-find \
 	util-linux-user \
 	gnome-console \
 	seahorse \
