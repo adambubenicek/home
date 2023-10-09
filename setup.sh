@@ -63,10 +63,24 @@ if ! rclone config show storagebox; then
 		password2=$(rclone obscure $password2)
 fi
 
+if ! rclone config show seedbox; then
+	host=$(gpg -q -d rclone/seedbox-host.gpg)
+	user=$(gpg -q -d rclone/seedbox-user.gpg)
+	password=$(gpg -q -d rclone/seedbox-password.gpg)
+	rclone config create seedbox sftp \
+		host=$host \
+		user=$user \
+		pass=$(rclone obscure $password)
+fi
+
 mkdir -p ~/.config/systemd/user
 mkdir -p ~/Storage\ Box
 ln -sf "$SCRIPT_DIR/rclone/systemd/storagebox.service" ~/.config/systemd/user/storagebox.service
 systemctl enable --user storagebox
+
+mkdir -p ~/Seed\ Box
+ln -sf "$SCRIPT_DIR/rclone/systemd/seedbox.service" ~/.config/systemd/user/seedbox.service
+systemctl enable --user seedbox
 
 find ~/.mozilla/firefox -regex '.*\.default\(-release\)?' | while read dir; do
 ln -sf "$SCRIPT_DIR/firefox/user.js" "$dir/user.js"

@@ -1,0 +1,15 @@
+[Unit]
+Description=RClone mount of Seed Box
+After=network-online.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/rclone mount \
+	--vfs-cache-mode full \
+	"seedbox:" "%h/Seed Box"
+ExecStop=/bin/fusermount -u "%h/Seed Box"
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
