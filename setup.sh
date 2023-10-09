@@ -14,7 +14,7 @@ sudo dnf install \
 	ripgrep \
 	fd-find \
 	util-linux-user \
-	gnome-console \
+	blackbox-terminal \
 	seahorse \
 	dconf-editor \
 	distrobox \
