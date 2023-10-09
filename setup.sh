@@ -43,7 +43,6 @@ ln -sf "$SCRIPT_DIR/git/config" ~/.config/git/config
 
 ln -sf "$SCRIPT_DIR/gpg/gpg.conf" ~/.gnupg/gpg.conf
 ln -sf "$SCRIPT_DIR/gpg/gpg-agent.conf" ~/.gnupg/gpg-agent.conf
-ln -sf "$SCRIPT_DIR/gpg/sshcontrol" ~/.gnupg/sshcontrol
 
 if ! rclone config show storagebox-crypt; then
 	host=$(gpg -q -d rclone/storagebox-crypt-host.gpg)
