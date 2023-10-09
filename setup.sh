@@ -28,7 +28,7 @@ if ! command -v keyd; then
 fi
 
 sudo mkdir -p /etc/keyd
-sudo cp keyd/default.conf /etc/keyd/default.conf
+sudo cp "$SCRIPT_DIR/keyd/default.conf" /etc/keyd/default.conf
 sudo systemctl enable --now keyd
 
 mkdir -p ~/.config/fish
