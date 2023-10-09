@@ -18,11 +18,9 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-surround',
   'tpope/vim-sleuth',
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
+  { "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
-    opts = {},
   },
   {
     'neovim/nvim-lspconfig',
@@ -97,4 +95,4 @@ vim.wo.signcolumn = 'yes'
 vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
-vim.cmd[[colorscheme tokyonight-night]]
+vim.cmd[[colorscheme catppuccin-mocha]]
