@@ -45,9 +45,9 @@ ln -sf "$SCRIPT_DIR/gpg/gpg.conf" ~/.gnupg/gpg.conf
 ln -sf "$SCRIPT_DIR/gpg/gpg-agent.conf" ~/.gnupg/gpg-agent.conf
 
 if ! rclone config show storagebox-crypt; then
-	host=$(gpg -q -d rclone/storagebox-crypt-host.gpg)
-	user=$(gpg -q -d rclone/storagebox-crypt-user.gpg)
-	password=$(gpg -q -d rclone/storagebox-crypt-password.gpg)
+	host=$(gpg -q -d "$SCRIPT_DIR/rclone/storagebox-crypt-host.gpg")
+	user=$(gpg -q -d "$SCRIPT_DIR/rclone/storagebox-crypt-user.gpg")
+	password=$(gpg -q -d "$SCRIPT_DIR/rclone/storagebox-crypt-password.gpg")
 	rclone config create storagebox-crypt sftp \
 		host=$host \
 		user=$user \
@@ -55,8 +55,8 @@ if ! rclone config show storagebox-crypt; then
 fi
 
 if ! rclone config show storagebox; then
-	password=$(gpg -q -d rclone/storagebox-password.gpg)
-	password2=$(gpg -q -d rclone/storagebox-password2.gpg)
+	password=$(gpg -q -d "$SCRIPT_DIR/rclone/storagebox-password.gpg")
+	password2=$(gpg -q -d "$SCRIPT_DIR/rclone/storagebox-password2.gpg")
 	rclone config create storagebox crypt \
 		remote=storagebox-crypt: \
 		password=$(rclone obscure $password) \
@@ -64,9 +64,9 @@ if ! rclone config show storagebox; then
 fi
 
 if ! rclone config show seedbox; then
-	host=$(gpg -q -d rclone/seedbox-host.gpg)
-	user=$(gpg -q -d rclone/seedbox-user.gpg)
-	password=$(gpg -q -d rclone/seedbox-password.gpg)
+	host=$(gpg -q -d "$SCRIPT_DIR/rclone/seedbox-host.gpg")
+	user=$(gpg -q -d "$SCRIPT_DIR/rclone/seedbox-user.gpg")
+	password=$(gpg -q -d "$SCRIPT_DIR/rclone/seedbox-password.gpg")
 	rclone config create seedbox sftp \
 		host=$host \
 		user=$user \
