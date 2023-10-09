@@ -76,6 +76,7 @@ mkdir -p ~/.local/share/blackbox/schemes
 ln -sf "$SCRIPT_DIR/blackbox/catppuccin-mocha.json" ~/.local/share/blackbox/schemes/catppuccin-mocha.json
 dconf write /com/raggesilver/BlackBox/terminal-padding "(uint32 8, uint32 8, uint32 8, uint32 8)"
 dconf write /com/raggesilver/BlackBox/theme-dark "'Catppuccin-Mocha'"
+dconf write /com/raggesilver/BlackBox/font "'Monospace 11'"
 
 sudo cp gdm/custom.conf /etc/gdm/custom.conf
 dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
