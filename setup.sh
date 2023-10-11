@@ -83,7 +83,7 @@ ln -sf "$SCRIPT_DIR/rclone/systemd/seedbox.service" ~/.config/systemd/user/seedb
 systemctl enable --user seedbox
 
 find ~/.mozilla/firefox -regex '.*\.default\(-release\)?' | while read dir; do
-ln -sf "$SCRIPT_DIR/firefox/user.js" "$dir/user.js"
+	ln -sf "$SCRIPT_DIR/firefox/user.js" "$dir/user.js"
 done
 
 if [ ! -f ~/.local/share/fonts/IosevkaTermNerdFont-Regular.ttf ]; then
