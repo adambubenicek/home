@@ -86,11 +86,19 @@ find ~/.mozilla/firefox -regex '.*\.default\(-release\)?' | while read dir; do
 ln -sf "$SCRIPT_DIR/firefox/user.js" "$dir/user.js"
 done
 
+if [ ! -f ~/.local/share/fonts/IosevkaTermNerdFont-Regular.ttf ]; then
+	cd /tmp
+	curl -O -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/IosevkaTerm.zip
+	mkdir -p IosevkaTerm
+	unzip IosevkaTerm.zip -d IosevkaTerm
+	mv IosevkaTerm/*.ttf ~/.local/share/fonts/
+fi
+
 mkdir -p ~/.local/share/blackbox/schemes
 ln -sf "$SCRIPT_DIR/blackbox/tokyonight.json" ~/.local/share/blackbox/schemes/tokyonight.json
 dconf write /com/raggesilver/BlackBox/terminal-padding "(uint32 8, uint32 8, uint32 8, uint32 8)"
-dconf write /com/raggesilver/BlackBox/font "'Monospace 11'"
 dconf write /com/raggesilver/BlackBox/theme-dark "'Tokyonight'"
+dconf write /com/raggesilver/BlackBox/font "'IosevkaTerm Nerd Font Mono 12'"
 
 sudo cp gdm/custom.conf /etc/gdm/custom.conf
 dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
