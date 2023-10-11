@@ -99,7 +99,7 @@ dconf write /com/raggesilver/BlackBox/terminal-padding "(uint32 8, uint32 8, uin
 dconf write /com/raggesilver/BlackBox/theme-dark "'Tokyonight'"
 dconf write /com/raggesilver/BlackBox/font "'IosevkaTerm Nerd Font Mono 12'"
 
-sudo cp gdm/custom.conf /etc/gdm/custom.conf
+sudo cp "$SCRIPT_DIR/gdm/custom.conf" /etc/gdm/custom.conf
 dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
 dconf write /org/gnome/settings-daemon/plugins/color/night-light-enabled true
 dconf write /org/gnome/desktop/peripherals/mouse/natural-scroll true
