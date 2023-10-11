@@ -35,8 +35,7 @@ mkdir -p ~/.config/fish
 ln -sf "$SCRIPT_DIR/fish/config.fish" ~/.config/fish/config.fish
 sudo chsh -s /bin/fish adam
 
-mkdir -p ~/.config/nvim
-ln -sf "$SCRIPT_DIR/neovim/init.lua" ~/.config/nvim/init.lua
+ln -sf "$SCRIPT_DIR/neovim" ~/.config/nvim
 
 mkdir -p ~/.config/git
 ln -sf "$SCRIPT_DIR/git/config" ~/.config/git/config
@@ -107,4 +106,3 @@ dconf write /org/gnome/desktop/peripherals/mouse/natural-scroll true
 dconf write /org/gnome/desktop/background/picture-options "'none'"
 dconf write /org/gnome/desktop/background/primary-color "'#000000'"
 dconf write /org/gnome/desktop/peripherals/touchpad/tap-to-click true
-
