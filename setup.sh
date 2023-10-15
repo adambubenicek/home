@@ -98,6 +98,7 @@ if [ ! -f ~/.local/share/fonts/IosevkaTermNerdFont-Regular.ttf ]; then
 	curl -O -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/IosevkaTerm.zip
 	mkdir -p IosevkaTerm
 	unzip IosevkaTerm.zip -d IosevkaTerm
+	mkdir -p ~/.local/share/fonts
 	mv IosevkaTerm/*.ttf ~/.local/share/fonts/
 fi
 
