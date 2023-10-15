@@ -20,6 +20,14 @@ sudo dnf install \
 	distrobox \
 	rclone
 
+sudo dnf install \
+	gstreamer1-plugins-{bad-\*,good-\*,base} \
+	gstreamer1-plugin-openh264 \
+	gstreamer1-libav \
+	--exclude=gstreamer1-plugins-bad-free-devel
+sudo dnf install lame\* --exclude=lame-devel
+sudo dnf group upgrade --with-optional Multimedia
+
 if ! command -v keyd; then
 	git clone https://github.com/rvaiya/keyd /tmp/keyd
 	cd /tmp/keyd
