@@ -23,6 +23,11 @@ sudo dnf install -y \
 sudo dnf install -y lame\* --exclude=lame-devel
 sudo dnf group upgrade -y --with-optional Multimedia
 
+if [ -z "$(hostnamectl --static)" ]; then
+	read -p 'Choose a hostname: ' hostname
+	sudo hostnamectl set-hostname --static $hostname
+fi
+
 systemctl enable --user syncthing
 
 if ! command -v keyd; then
