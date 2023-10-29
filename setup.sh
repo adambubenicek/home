@@ -37,9 +37,6 @@ ln -sf "$SCRIPT_DIR/neovim" ~/.config/nvim
 mkdir -p ~/.config/git
 ln -sf "$SCRIPT_DIR/git/config" ~/.config/git/config
 
-mkdir -p ~/.config/fish
-ln -sf "$SCRIPT_DIR/fish/config.fish" ~/.config/fish/config.fish
-
 find ~/.mozilla/firefox -regex '.*\.default\(-release\)?' | while read dir; do
 	ln -sf "$SCRIPT_DIR/firefox/user.js" "$dir/user.js"
 done
@@ -47,12 +44,6 @@ done
 mkdir -p ~/.config/zsh
 ln -sf "$SCRIPT_DIR/zsh/zshrc.zsh" ~/.config/zsh/.zshrc
 ln -sf "$SCRIPT_DIR/zsh/p10k.zsh" ~/.config/zsh/.p10k.zsh
-
-mkdir -p ~/.config/tmux
-ln -sf "$SCRIPT_DIR/tmux/tmux.conf" ~/.config/tmux/tmux.conf
-
-mkdir -p ~/.config/alacritty
-ln -sf "$SCRIPT_DIR/alacritty/alacritty.yml" ~/.config/alacritty/alacritty.yml
 
 if [ ! -f ~/.local/share/fonts/IosevkaTermNerdFont-Regular.ttf ]; then
 	cd /tmp
