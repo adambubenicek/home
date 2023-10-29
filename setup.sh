@@ -44,6 +44,10 @@ find ~/.mozilla/firefox -regex '.*\.default\(-release\)?' | while read dir; do
 	ln -sf "$SCRIPT_DIR/firefox/user.js" "$dir/user.js"
 done
 
+mkdir -p ~/.config/zsh
+ln -sf "$SCRIPT_DIR/zsh/zshrc.zsh" ~/.config/zsh/.zshrc
+ln -sf "$SCRIPT_DIR/zsh/p10k.zsh" ~/.config/zsh/.p10k.zsh
+
 mkdir -p ~/.config/tmux
 ln -sf "$SCRIPT_DIR/tmux/tmux.conf" ~/.config/tmux/tmux.conf
 
