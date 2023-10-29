@@ -12,7 +12,8 @@ sudo dnf install -y \
 	make \
 	blackbox-terminal \
 	dconf-editor \
-	distrobox
+	distrobox \
+	syncthing
 
 sudo dnf install -y \
 	gstreamer1-plugins-{bad-\*,good-\*,base} \
@@ -21,6 +22,8 @@ sudo dnf install -y \
 	--exclude=gstreamer1-plugins-bad-free-devel
 sudo dnf install -y lame\* --exclude=lame-devel
 sudo dnf group upgrade -y --with-optional Multimedia
+
+systemctl enable --user syncthing
 
 if ! command -v keyd; then
 	git clone https://github.com/rvaiya/keyd /tmp/keyd
