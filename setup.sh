@@ -5,8 +5,9 @@ set -e
 SCRIPT_FILE=$(realpath "$0")
 SCRIPT_DIR=$(dirname "$SCRIPT_FILE")
 
+git remote set-url origin git@github.com:adambubenicek/home.git
+
 sudo dnf install -y \
-	git \
 	gcc \
 	make \
 	blackbox-terminal \
@@ -36,6 +37,10 @@ ln -sf "$SCRIPT_DIR/neovim" ~/.config/nvim
 
 mkdir -p ~/.config/git
 ln -sf "$SCRIPT_DIR/git/config" ~/.config/git/config
+
+if [[ ! -f ~/.ssh/id_ed25519_sk ]]; then
+	ssh-keygen -t ed25519-sk
+fi
 
 find ~/.mozilla/firefox -regex '.*\.default\(-release\)?' | while read dir; do
 	ln -sf "$SCRIPT_DIR/firefox/user.js" "$dir/user.js"
