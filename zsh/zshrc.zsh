@@ -18,6 +18,18 @@ fi
 source "$PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
+export ASDF_DATA_DIR="$PLUGINS_DIR/asdf"
+if [[ ! -d "$PLUGINS_DIR/asdf" ]]; then
+  git clone --depth=1 https://github.com/asdf-vm/asdf.git "$PLUGINS_DIR/asdf"
+
+  source "$PLUGINS_DIR/asdf/asdf.sh"
+
+  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+else
+  source "$PLUGINS_DIR/asdf/asdf.sh"
+fi
+
+
 HISTFILE=~/.config/zsh/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
