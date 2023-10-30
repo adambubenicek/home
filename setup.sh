@@ -56,6 +56,7 @@ done
 
 ln -sf "$SCRIPT_DIR/zsh/zshrc.zsh" ~/.zshrc
 ln -sf "$SCRIPT_DIR/zsh/p10k.zsh" ~/.p10k.zsh
+ln -sf "$SCRIPT_DIR/asdf/tool-versions" ~/.tool-versions
 
 if [ ! -f ~/.local/share/fonts/IosevkaTermNerdFont-Regular.ttf ]; then
 	cd /tmp
