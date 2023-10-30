@@ -39,3 +39,5 @@ zstyle :compinstall filename '/home/adam/.config/zsh/.zshrc'
 
 autoload -Uz compinit
 compinit
+
+export EDITOR=nvim
