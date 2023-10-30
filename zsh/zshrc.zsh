@@ -9,7 +9,7 @@ if [[ ! -d "$PLUGINS_DIR/powerlevel10k" ]]; then
 fi
 
 source "$PLUGINS_DIR/powerlevel10k/powerlevel10k.zsh-theme"
-source ~/.config/zsh/.p10k.zsh
+source ~/.p10k.zsh
 
 if [[ ! -d "$PLUGINS_DIR/zsh-autosuggestions" ]]; then
   git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions "$PLUGINS_DIR/zsh-autosuggestions"

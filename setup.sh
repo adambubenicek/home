@@ -54,9 +54,8 @@ find ~/.mozilla/firefox -regex '.*\.default\(-release\)?' | while read dir; do
 	ln -sf "$SCRIPT_DIR/firefox/user.js" "$dir/user.js"
 done
 
-mkdir -p ~/.config/zsh
-ln -sf "$SCRIPT_DIR/zsh/zshrc.zsh" ~/.config/zsh/.zshrc
-ln -sf "$SCRIPT_DIR/zsh/p10k.zsh" ~/.config/zsh/.p10k.zsh
+ln -sf "$SCRIPT_DIR/zsh/zshrc.zsh" ~/.zshrc
+ln -sf "$SCRIPT_DIR/zsh/p10k.zsh" ~/.p10k.zsh
 
 if [ ! -f ~/.local/share/fonts/IosevkaTermNerdFont-Regular.ttf ]; then
 	cd /tmp
