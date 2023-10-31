@@ -40,5 +40,4 @@ zstyle :compinstall filename '/home/adam/.config/zsh/.zshrc'
 autoload -Uz compinit
 compinit
 
-alias hx=helix
-export EDITOR=helix
+export EDITOR=hx
