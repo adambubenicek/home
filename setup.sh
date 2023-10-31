@@ -41,7 +41,11 @@ sudo mkdir -p /etc/keyd
 sudo cp "$SCRIPT_DIR/keyd/default.conf" /etc/keyd/default.conf
 sudo systemctl enable --now keyd
 
-ln -sf "$SCRIPT_DIR/neovim" ~/.config/nvim
+mkdir -p ~/.config/helix
+ln -sf "$SCRIPT_DIR/helix/config.toml" ~/.config/helix/config.toml
+
+mkdir -p ~/.config/lazygit
+ln -sf "$SCRIPT_DIR/lazygit/config.yml" ~/.config/lazygit/config.yml
 
 mkdir -p ~/.config/git
 ln -sf "$SCRIPT_DIR/git/config" ~/.config/git/config
@@ -69,10 +73,8 @@ fi
 
 distrobox assemble create --file "$SCRIPT_DIR/distrobox/distrobox.ini"
 
-mkdir -p ~/.local/share/blackbox/schemes
-ln -sf "$SCRIPT_DIR/blackbox/tokyonight.json" ~/.local/share/blackbox/schemes/tokyonight.json
 dconf write /com/raggesilver/BlackBox/terminal-padding "(uint32 8, uint32 8, uint32 8, uint32 8)"
-dconf write /com/raggesilver/BlackBox/theme-dark "'Tokyonight'"
+dconf write /com/raggesilver/BlackBox/theme-dark "'Adwaita Dark'"
 dconf write /com/raggesilver/BlackBox/font "'IosevkaTerm Nerd Font Mono 12'"
 dconf write /com/raggesilver/BlackBox/use-custom-command true
 dconf write /com/raggesilver/BlackBox/custom-shell-command "'distrobox enter default'"
