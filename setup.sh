@@ -7,6 +7,10 @@ SCRIPT_DIR=$(dirname "$SCRIPT_FILE")
 
 git remote set-url origin git@github.com:adambubenicek/home.git
 
+sudo dnf remove -y firefox
+
+flatpak install -y org.mozilla.firefox org.videolan.VLC
+
 sudo dnf install -y \
 	gcc \
 	make \
@@ -14,14 +18,6 @@ sudo dnf install -y \
 	dconf-editor \
 	distrobox \
 	syncthing
-
-sudo dnf install -y \
-	gstreamer1-plugins-{bad-\*,good-\*,base} \
-	gstreamer1-plugin-openh264 \
-	gstreamer1-libav \
-	--exclude=gstreamer1-plugins-bad-free-devel
-sudo dnf install -y lame\* --exclude=lame-devel
-sudo dnf group upgrade -y --with-optional Multimedia
 
 if [ -z "$(hostnamectl --static)" ]; then
 	read -p 'Choose a hostname: ' hostname
@@ -51,8 +47,8 @@ if [[ ! -f ~/.ssh/id_ed25519_sk ]]; then
 	ssh-keygen -t ed25519-sk
 fi
 
-find ~/.mozilla/firefox -regex '.*\.default\(-release\)?' | while read dir; do
-	ln -sf "$SCRIPT_DIR/firefox/user.js" "$dir/user.js"
+find ~/.var/app/org.mozilla.firefox/.mozilla/firefox -regex '.*\.default\(-release\)?' | while read dir; do
+	cp "$SCRIPT_DIR/firefox/user.js" "$dir/user.js"
 done
 
 ln -sf "$SCRIPT_DIR/zsh/zshrc.zsh" ~/.zshrc
