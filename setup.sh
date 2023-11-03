@@ -9,7 +9,9 @@ git remote set-url origin git@github.com:adambubenicek/home.git
 
 sudo dnf remove -y firefox
 
-flatpak install -y org.mozilla.firefox org.videolan.VLC
+flatpak install -y \
+	org.mozilla.firefox \
+	celluloid_player.Celluloid
 
 sudo dnf install -y \
 	gcc \
