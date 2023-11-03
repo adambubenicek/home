@@ -66,6 +66,8 @@ fi
 
 distrobox assemble create --file "$SCRIPT_DIR/distrobox/distrobox.ini"
 
+ln -sf "$SCRIPT_DIR/gnome/mimeapps.list" ~/.config/mimeapps.list
+
 cat <<EOF > ~/.config/gtk-3.0/bookmarks
 file://$HOME/Sync
 EOF
