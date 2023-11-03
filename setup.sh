@@ -44,9 +44,6 @@ sudo systemctl enable --now keyd
 mkdir -p ~/.config/helix
 ln -sf "$SCRIPT_DIR/helix/config.toml" ~/.config/helix/config.toml
 
-mkdir -p ~/.config/lazygit
-ln -sf "$SCRIPT_DIR/lazygit/config.yml" ~/.config/lazygit/config.yml
-
 mkdir -p ~/.config/git
 ln -sf "$SCRIPT_DIR/git/config" ~/.config/git/config
 
