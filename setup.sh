@@ -70,6 +70,10 @@ fi
 
 distrobox assemble create --file "$SCRIPT_DIR/distrobox/distrobox.ini"
 
+cat <<EOF > ~/.config/gtk-3.0/bookmarks
+file://$HOME/Sync
+EOF
+
 dconf write /com/raggesilver/BlackBox/terminal-padding "(uint32 8, uint32 8, uint32 8, uint32 8)"
 dconf write /com/raggesilver/BlackBox/theme-dark "'Adwaita Dark'"
 dconf write /com/raggesilver/BlackBox/font "'IosevkaTerm Nerd Font Mono 12'"
