@@ -13,6 +13,8 @@ flatpak install -y \
 	org.mozilla.firefox \
 	io.github.celluloid_player.Celluloid
 
+flatpak override --user --socket=fallback-x11
+
 sudo dnf install -y \
 	gcc \
 	make \
