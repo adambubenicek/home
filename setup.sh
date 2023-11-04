@@ -89,3 +89,5 @@ dconf write /org/gnome/desktop/peripherals/mouse/natural-scroll true
 dconf write /org/gnome/desktop/background/picture-options "'none'"
 dconf write /org/gnome/desktop/background/primary-color "'#000000'"
 dconf write /org/gnome/desktop/peripherals/touchpad/tap-to-click true
+
+dconf write /org/gnome/shell/favorite-apps "['org.mozilla.firefox.desktop', 'com.raggesilver.BlackBox.desktop', 'org.gnome.Nautilus.desktop']"
