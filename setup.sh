@@ -11,7 +11,7 @@ sudo dnf remove -y firefox
 
 flatpak install -y \
 	org.mozilla.firefox \
-	celluloid_player.Celluloid
+	io.github.celluloid_player.Celluloid
 
 sudo dnf install -y \
 	gcc \
