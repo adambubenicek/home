@@ -47,8 +47,8 @@ ln -sf "$SCRIPT_DIR/helix/config.toml" ~/.config/helix/config.toml
 mkdir -p ~/.config/git
 ln -sf "$SCRIPT_DIR/git/config" ~/.config/git/config
 
-if [[ ! -f ~/.ssh/id_ed25519_sk ]]; then
-	ssh-keygen -t ed25519-sk
+if [[ ! -f ~/.ssh/id_ed25519 ]]; then
+	ssh-keygen -t ed25519
 fi
 
 find ~/.var/app/org.mozilla.firefox/.mozilla/firefox -regex '.*\.default\(-release\)?' | while read dir; do
