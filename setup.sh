@@ -21,7 +21,10 @@ sudo dnf install -y \
 	blackbox-terminal \
 	dconf-editor \
 	distrobox \
-	syncthing
+	syncthing \
+	qbittorrent-nox
+
+systemctl enable qbittorrent-nox@adam
 
 if [ -z "$(hostnamectl --static)" ]; then
 	read -p 'Choose a hostname: ' hostname
@@ -37,12 +40,21 @@ if ! command -v keyd; then
 	sudo make install
 fi
 
+if ! command -v mullvad; then
+	mkdir /tmp/mullvad
+	cd /tmp/mullvad
+	wget -O mullvad.rpm --content-disposition https://mullvad.net/download/app/rpm/latest
+	sudo dnf install -y mullvad.rpm
+fi
+
 sudo mkdir -p /etc/keyd
 sudo cp "$SCRIPT_DIR/keyd/default.conf" /etc/keyd/default.conf
 sudo systemctl enable --now keyd
 
 mkdir -p ~/.config/helix
 ln -sf "$SCRIPT_DIR/helix/config.toml" ~/.config/helix/config.toml
+mkdir -p ~/.config/qBittorrent
+ln -sf "$SCRIPT_DIR/qBittorrent/qBittorrent.conf" ~/.config/qBittorrent/qBittorrent.conf
 
 mkdir -p ~/.config/git
 ln -sf "$SCRIPT_DIR/git/config" ~/.config/git/config
