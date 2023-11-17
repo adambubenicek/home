@@ -29,6 +29,8 @@ else
   source "$PLUGINS_DIR/asdf/asdf.sh"
 fi
 
+export SSH_AUTH_SOCK="/run/user/$UID/ssh-agent.socket"
+
 
 HISTFILE=~/.config/zsh/.histfile
 HISTSIZE=1000
