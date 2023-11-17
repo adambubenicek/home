@@ -2,6 +2,8 @@
 
 set -e
 
+exit 0
+
 SCRIPT_FILE=$(realpath "$0")
 SCRIPT_DIR=$(dirname "$SCRIPT_FILE")
 
@@ -74,4 +76,12 @@ distrobox assemble create --file "$SCRIPT_DIR/distrobox/distrobox.ini"
 plasma-apply-colorscheme BreezeDark
 kwriteconfig5 --file kwinrc --group NightColor --key Active --type bool true
 kwriteconfig5 --file kcminputrc --group Libinput --group 4012 --group 6878 --group keyd\ virtual\ pointer --key NaturalScroll --type bool true
+
+kwriteconfig5 --file plasmavaultrc --group "$HOME/Dropbox/vault" --key backend cryfs --key mountPoint "$HOME/Vaults/vault" --key name "vault" --key offlineOnly --type bool false
+kwriteconfig5 --file plasmavaultrc --group EncryptedDevices --key "$HOME/Dropbox/vault" --type bool true
+kwriteconfig5 --file plasmavaultrc --group "$HOME/Dropbox/vault" --key backend cryfs
+kwriteconfig5 --file plasmavaultrc --group "$HOME/Dropbox/vault" --key mountPoint "$HOME/Vaults/vault"
+kwriteconfig5 --file plasmavaultrc --group "$HOME/Dropbox/vault" --key name "vault"
+kwriteconfig5 --file plasmavaultrc --group "$HOME/Dropbox/vault" --key offlineOnly --type bool false
+kwriteconfig5 --file plasmavaultrc --group EncryptedDevices --key "$HOME/Dropbox/vault" --type bool true
 
