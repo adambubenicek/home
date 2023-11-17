@@ -2,8 +2,6 @@
 
 set -e
 
-exit 0
-
 SCRIPT_FILE=$(realpath "$0")
 SCRIPT_DIR=$(dirname "$SCRIPT_FILE")
 
