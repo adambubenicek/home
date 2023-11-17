@@ -72,8 +72,12 @@ ln -sf "$SCRIPT_DIR/asdf/tool-versions" ~/.tool-versions
 distrobox assemble create --file "$SCRIPT_DIR/distrobox/distrobox.ini"
 
 plasma-apply-colorscheme BreezeDark
+
 kwriteconfig5 --file kwinrc --group NightColor --key Active --type bool true
 kwriteconfig5 --file kcminputrc --group Libinput --group 4012 --group 6878 --group keyd\ virtual\ pointer --key NaturalScroll --type bool true
+
+kwriteconfig5 --file kcminputrc --group Libinput --group 1267 --group 12926 --group ELAN06FA:00\ 04F3:327E\ Touchpad --key NaturalScroll --type bool true
+kwriteconfig5 --file kcminputrc --group Libinput --group 1267 --group 12926 --group ELAN06FA:00\ 04F3:327E\ Touchpad --key TapToClick --type bool true
 
 kwriteconfig5 --file plasmavaultrc --group "$HOME/Dropbox/vault" --key backend cryfs --key mountPoint "$HOME/Vaults/vault" --key name "vault" --key offlineOnly --type bool false
 kwriteconfig5 --file plasmavaultrc --group EncryptedDevices --key "$HOME/Dropbox/vault" --type bool true
