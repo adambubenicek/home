@@ -56,6 +56,9 @@ sudo systemctl enable --now keyd
 mkdir -p ~/.config/helix
 ln -sf "$SCRIPT_DIR/helix/config.toml" ~/.config/helix/config.toml
 
+mkdir -p ~/.config/lazygit
+ln -sf "$SCRIPT_DIR/lazygit/config.yml" ~/.config/lazygit/config.yml
+
 mkdir -p ~/.local/share/konsole
 ln -sf "$SCRIPT_DIR/konsole/Distrobox.profile" ~/.local/share/konsole/Distrobox.profile
 
