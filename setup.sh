@@ -15,7 +15,8 @@ flatpak install -y \
 	org.qbittorrent.qBittorrent \
 	org.videolan.VLC \
 	com.valvesoftware.Steam \
-	com.dropbox.Client
+	com.dropbox.Client \
+	org.cryptomator.Cryptomator
 
 flatpak override --user --socket=fallback-x11
 
@@ -74,16 +75,14 @@ distrobox assemble create --file "$SCRIPT_DIR/distrobox/distrobox.ini"
 plasma-apply-colorscheme BreezeDark
 
 kwriteconfig5 --file kwinrc --group NightColor --key Active --type bool true
-kwriteconfig5 --file kcminputrc --group Libinput --group 4012 --group 6878 --group keyd\ virtual\ pointer --key NaturalScroll --type bool true
 
+kwriteconfig5 --file kcminputrc --group Libinput --group 4012 --group 6878 --group keyd\ virtual\ pointer --key NaturalScroll --type bool true
 kwriteconfig5 --file kcminputrc --group Libinput --group 1267 --group 12926 --group ELAN06FA:00\ 04F3:327E\ Touchpad --key NaturalScroll --type bool true
 kwriteconfig5 --file kcminputrc --group Libinput --group 1267 --group 12926 --group ELAN06FA:00\ 04F3:327E\ Touchpad --key TapToClick --type bool true
 
-kwriteconfig5 --file plasmavaultrc --group "$HOME/Dropbox/vault" --key backend cryfs --key mountPoint "$HOME/Vaults/vault" --key name "vault" --key offlineOnly --type bool false
-kwriteconfig5 --file plasmavaultrc --group EncryptedDevices --key "$HOME/Dropbox/vault" --type bool true
-kwriteconfig5 --file plasmavaultrc --group "$HOME/Dropbox/vault" --key backend cryfs
-kwriteconfig5 --file plasmavaultrc --group "$HOME/Dropbox/vault" --key mountPoint "$HOME/Vaults/vault"
-kwriteconfig5 --file plasmavaultrc --group "$HOME/Dropbox/vault" --key name "vault"
-kwriteconfig5 --file plasmavaultrc --group "$HOME/Dropbox/vault" --key offlineOnly --type bool false
-kwriteconfig5 --file plasmavaultrc --group EncryptedDevices --key "$HOME/Dropbox/vault" --type bool true
+kwriteconfig5 --file kwalletrc --group Wallet --key Enabled --type bool false
+kwriteconfig5 --file kwalletrc --group org.freedesktop.secrets --key apiEnabled --type bool false
 
+kwriteconfig5 --file keepassxc/keepassxc.ini --group GUI --key ApplicationTheme classic
+kwriteconfig5 --file keepassxc/keepassxc.ini --group FdoSecrets --key Enabled --type bool true
+kwriteconfig5 --file keepassxc/keepassxc.ini --group SSHAgent --key Enabled --type bool true
